@@ -224,7 +224,7 @@
     </div>
 
     <script>
-      function ketik(teks, elemenId, kecepatan = 40, callback) {
+      function ketik(teks, elemenId, kecepatan = 1000, callback) {
         const elemen = document.getElementById(elemenId);
         elemen.innerHTML = "";
         let i = 0;
@@ -282,7 +282,7 @@ Kalau suka ini salah, biarkan aku salah tiap hari... asal masih bisa lihat kamu 
         const elemenNama = document.getElementById("namaTarget");
         elemenNama.style.display = "block";
 
-        ketik(teksNama, "namaTarget", 70, () => {
+        ketik(teksNama, "namaTarget", 120, () => {
           const area = document.getElementById("mainText");
           area.style.display = "block";
           ketik(paragrafUtama, "mainText", 30, () => {
