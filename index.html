@@ -21,6 +21,7 @@
         align-items: center;
         justify-content: center;
         overflow-x: hidden;
+        position: relative;
       }
 
       .card {
@@ -34,6 +35,7 @@
         text-align: center;
         color: #fff;
         animation: fadeIn 1.5s ease-in-out;
+        z-index: 1;
       }
 
       h1 {
@@ -188,7 +190,6 @@
     <div class="card">
       <h1>Suka Menjurus Sayang</h1>
 
-      <!-- Paragraf utama (akan diketik) -->
       <div class="poemArea" id="mainText"></div>
 
       <div class="heart">❤️</div>
@@ -196,12 +197,13 @@
       <button onclick="tampilkanNama()">Klik di sini dulu...</button>
       <div class="name" id="namaTarget" style="display: none"></div>
 
-      <button onclick="tampilkanPuisi()">Lihat Pilihan Puisi</button>
+      <button id="puisiButton" onclick="tampilkanPuisi()">
+        Lihat Pilihan Puisi
+      </button>
       <div class="puisiArea" id="puisiArea"></div>
     </div>
 
     <script>
-      // Typewriter function
       function ketik(teks, elemenId, kecepatan = 40, callback) {
         const elemen = document.getElementById(elemenId);
         elemen.innerHTML = "";
@@ -216,7 +218,6 @@
         }, kecepatan);
       }
 
-      // Ketikkan puisi utama saat load
       const paragrafUtama = `Semua berawal dari pandangan biasa.
 Tak ada yang istimewa, hanya kamu dan senyumanmu yang singkat.
 Tapi entah kenapa, hati ini jadi penasaran...
@@ -248,8 +249,12 @@ Suka ini, telah menjurus... jadi sayang. 💞`;
 
       let index = 0;
       function tampilkanPuisi() {
-        ketik(puisiList[index], "puisiArea", 50);
-        index = (index + 1) % puisiList.length;
+        const area = document.getElementById("puisiArea");
+        area.innerText = puisiList[index];
+        index++;
+        if (index >= puisiList.length) {
+          document.getElementById("puisiButton").style.display = "none";
+        }
       }
     </script>
   </body>
