@@ -1,170 +1,234 @@
 <!DOCTYPE html>
 <html lang="id">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Suka Menjurus Sayang</title>
-        <style>
-            @import url("https://fonts.googleapis.com/css2?family=Satisfy&family=Poppins:wght@300;500&display=swap");
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suka Menjurus Sayang</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Satisfy&family=Poppins:wght@300;500&display=swap");
 
-            * {
-                box-sizing: border-box;
-            }
+      * {
+        box-sizing: border-box;
+      }
 
-            body {
-                margin: 0;
-                padding: 0;
-                background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-                font-family: "Poppins", sans-serif;
-                height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
-                position: relative;
-            }
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
 
-            .card {
-                background: rgba(255, 255, 255, 0.15);
-                padding: 40px 30px;
-                border-radius: 20px;
-                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-                backdrop-filter: blur(12px);
-                max-width: 650px;
-                text-align: center;
-                color: #fff;
-                animation: fadeIn 1.8s ease-in-out;
-            }
+      .card {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 40px 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(12px);
+        max-width: 700px;
+        text-align: center;
+        color: #fff;
+        animation: fadeIn 1.8s ease-in-out;
+      }
 
-            h1 {
-                font-family: "Satisfy", cursive;
-                font-size: 3.5rem;
-                margin-bottom: 15px;
-            }
+      h1 {
+        font-family: "Satisfy", cursive;
+        font-size: 3.5rem;
+        margin-bottom: 15px;
+      }
 
-            p {
-                font-size: 1.2rem;
-                line-height: 1.8;
-                margin-bottom: 20px;
-            }
+      .heart {
+        font-size: 1.5rem;
+        color: #ff4d6d;
+        animation: pulse 1.5s infinite;
+        display: inline-block;
+        margin: 15px 0;
+      }
 
-            .heart {
-                font-size: 1.5rem;
-                color: #ff4d6d;
-                animation: pulse 1.5s infinite;
-                display: inline-block;
-            }
+      .name {
+        display: block;
+        font-weight: bold;
+        font-size: 1.2rem;
+        background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 2s infinite;
+        margin-top: 10px;
+      }
 
-            .name {
-                display: block;
-                margin-top: 15px;
-                font-weight: bold;
-                font-size: 1.1rem;
-                background: linear-gradient(90deg, #ff9a9e, #fad0c4);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                animation: shimmer 2s infinite;
-            }
+      .poem {
+        margin-top: 25px;
+        font-size: 1.1rem;
+        font-style: italic;
+        transition: all 0.4s ease-in-out;
+      }
 
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(-30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
+      button {
+        margin: 10px 5px;
+        padding: 10px 20px;
+        background-color: #ffffff33;
+        border: 1px solid #fff;
+        color: #fff;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
 
-            @keyframes pulse {
-                0% {
-                    transform: scale(1);
-                }
-                50% {
-                    transform: scale(1.2);
-                }
-                100% {
-                    transform: scale(1);
-                }
-            }
+      button:hover {
+        background-color: #ffffff55;
+      }
 
-            @keyframes shimmer {
-                0% {
-                    background-position: -100%;
-                }
-                100% {
-                    background-position: 100%;
-                }
-            }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-            .bunga {
-                position: absolute;
-                width: 25px;
-                height: 25px;
-                background-image: url("https://cdn-icons-png.flaticon.com/512/747/747376.png");
-                background-size: cover;
-                opacity: 0.3;
-                animation: float 10s infinite linear;
-            }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
 
-            @keyframes float {
-                0% {
-                    transform: translateY(100vh) rotate(0deg);
-                    opacity: 0;
-                }
-                50% {
-                    opacity: 0.5;
-                }
-                100% {
-                    transform: translateY(-10vh) rotate(360deg);
-                    opacity: 0;
-                }
-            }
+      @keyframes shimmer {
+        0% {
+          background-position: -100%;
+        }
+        100% {
+          background-position: 100%;
+        }
+      }
 
-            /* Multiple floating elements */
-            .bunga:nth-child(1) {
-                left: 10%;
-                animation-delay: 0s;
-            }
-            .bunga:nth-child(2) {
-                left: 25%;
-                animation-delay: 2s;
-            }
-            .bunga:nth-child(3) {
-                left: 50%;
-                animation-delay: 4s;
-            }
-            .bunga:nth-child(4) {
-                left: 75%;
-                animation-delay: 6s;
-            }
-            .bunga:nth-child(5) {
-                left: 90%;
-                animation-delay: 1s;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Floating flowers -->
-        <div class="bunga">❤️</div>
-        <div class="bunga">❤️</div>
-        <div class="bunga">❤️</div>
-        <div class="bunga">❤️</div>
-        <div class="bunga">❤️</div>
+      .bunga {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background-image: url("https://cdn-icons-png.flaticon.com/512/747/747376.png");
+        background-size: cover;
+        opacity: 0.3;
+        animation: float 10s infinite linear;
+      }
 
-        <div class="card">
-            <h1>Suka Menjurus Sayang</h1>
-            <p>
-                Awalnya cuma kagum.<br />
-                Lalu ingin tahu lebih banyak.<br />
-                Tanpa sadar, senyummu jadi candu.<br /><br />
-                Sekarang? Rasa suka ini...<br />
-                Menjurus ke arah yang lebih dalam—<br />
-                Menjurus jadi sayang.
-            </p>
-            <div class="heart">❤️</div>
-            <span class="name">INDY MUTIARA SOBIIN</span>
-        </div>
-    </body>
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(-10vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .bunga:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .bunga:nth-child(2) {
+        left: 25%;
+        animation-delay: 2s;
+      }
+      .bunga:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .bunga:nth-child(4) {
+        left: 75%;
+        animation-delay: 6s;
+      }
+      .bunga:nth-child(5) {
+        left: 90%;
+        animation-delay: 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating flowers -->
+    <div class="bunga"></div>
+    <div class="bunga"></div>
+    <div class="bunga"></div>
+    <div class="bunga"></div>
+    <div class="bunga"></div>
+
+    <div class="card">
+      <h1>Suka Menjurus Sayang</h1>
+      <p>
+        Semua berawal dari pandangan biasa.<br />
+        Tak ada yang istimewa, hanya kamu dan senyumanmu yang singkat.<br />
+        Tapi entah kenapa, hati ini jadi penasaran...<br />
+        Ingin tahu siapa kamu, bagaimana harimu, dan apa kesukaanmu.<br /><br />
+        Dan dari situlah semuanya berubah.<br />
+        Rasa itu tumbuh perlahan, tanpa paksaan, tanpa alasan.<br />
+        Hingga hari ini, aku sadar:<br />
+        Suka ini, telah menjurus... jadi sayang. 💞
+      </p>
+
+      <div class="heart">❤️</div>
+
+      <!-- Tombol untuk menampilkan nama -->
+      <button onclick="tampilkanNama()">Klik di sini dulu...</button>
+      <span class="name" id="namaTarget" style="display: none"
+        >INDY MUTIARA SOBIIN</span
+      >
+
+      <!-- Tombol dan area puisi -->
+      <button onclick="tampilkanPuisi()">Lihat Pilihan Puisi</button>
+      <div class="poem" id="puisiArea"></div>
+    </div>
+
+    <script>
+      // Tampilkan nama setelah tombol diklik
+      function tampilkanNama() {
+        const nama = document.getElementById("namaTarget");
+        nama.style.display = "block";
+        nama.style.animation = "fadeInNama 1s ease-in-out";
+      }
+
+      // Efek animasi muncul
+      const style = document.createElement("style");
+      style.innerHTML = `
+        @keyframes fadeInNama {
+          from { opacity: 0; transform: scale(0.8); }
+          to { opacity: 1; transform: scale(1); }
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Puisi-puisi pilihan
+      const puisiList = [
+        "Ada senyum yang tak bisa dijelaskan logika: senyummu.",
+        "Aku nggak pandai merayu",
+        "Bukan hanya ingin bersamamu, tapi ingin menjagamu juga.",
+        "Kamu bukan cuma spesial. Kamu definisi nyaman itu sendiri.",
+        "Kalau kamu tanya aku kenapa sayang, aku nggak bisa jawab. Karena rasa itu tumbuh, bukan dicari.",
+      ];
+
+      let index = 0;
+      function tampilkanPuisi() {
+        const area = document.getElementById("puisiArea");
+        area.innerText = puisiList[index];
+        index = (index + 1) % puisiList.length;
+      }
+    </script>
+  </body>
 </html>
