@@ -197,20 +197,28 @@
     <div class="bunga"></div>
 
     <!-- Musik -->
-    <audio id="bgmusic" autoplay loop hidden>
+    <audio id="bgmusic" autoplay loop hidden muted>
       <source src="musik.mp3" type="audio/mp3" />
       Browser kamu tidak mendukung audio.
     </audio>
 
     <div class="card">
       <h1>Suka Menjurus Sayang</h1>
-      <div class="poemArea" id="mainText"></div>
       <div class="heart">❤️</div>
 
-      <button onclick="tampilkanNama()">Klik di sini dulu...</button>
+      <!-- Tombol klik dulu -->
+      <button id="tombolNama" onclick="tampilkanNama()">
+        Klik di sini dulu...
+      </button>
+
+      <!-- Nama -->
       <div class="name" id="namaTarget" style="display: none"></div>
 
-      <button id="puisiButton" onclick="tampilkanPuisi()">
+      <!-- Teks utama -->
+      <div class="poemArea" id="mainText" style="display: none"></div>
+
+      <!-- Tombol & puisi -->
+      <button id="puisiButton" onclick="tampilkanPuisi()" style="display: none">
         Lihat Pilihan Puisi
       </button>
       <div class="puisiArea" id="puisiArea"></div>
@@ -232,51 +240,34 @@
       }
 
       const paragrafUtama = `Semua berawal dari pandangan biasa.
-    Tak ada yang istimewa, hanya kamu dan senyumanmu yang singkat.
-    Tapi entah kenapa, hati ini jadi penasaran...
-    Ingin tahu siapa kamu, bagaimana harimu, dan apa kesukaanmu.
+Tak ada yang istimewa, hanya kamu dan senyumanmu yang singkat.
+Tapi entah kenapa, hati ini jadi penasaran...
+Ingin tahu siapa kamu, bagaimana harimu, dan apa kesukaanmu.
 
-    Dan dari situlah semuanya berubah.
-    Rasa itu tumbuh perlahan, tanpa paksaan, tanpa alasan.
-    Hingga hari ini, aku sadar:
-    Suka ini, telah menjurus... jadi sayang. 💞`;
-
-      window.onload = () => {
-        ketik(paragrafUtama, "mainText", 30);
-
-        // const musik = document.getElementById("bgmusic");
-        // musik.volume = 0.6;
-
-        // // Autoplay handler
-        // musik.play().catch(() => {
-        //   const tombolPlay = document.createElement("button");
-        //   tombolPlay.textContent = "Putar Musik 🎵";
-        //   tombolPlay.onclick = () => {
-        //     musik.play();
-        //     tombolPlay.remove();
-        //   };
-        //   document.querySelector(".card").appendChild(tombolPlay);
-        // });
-      };
+Dan dari situlah semuanya berubah.
+Rasa itu tumbuh perlahan, tanpa paksaan, tanpa alasan.
+Hingga hari ini, aku sadar:
+Suka ini, telah menjurus... jadi sayang. 💞`;
 
       function tampilkanNama() {
+        document.getElementById("tombolNama").style.display = "none";
+
+        const musik = document.getElementById("bgmusic");
+        musik.muted = false;
+        musik.volume = 0.6;
+        musik.play();
+
         const teksNama = "INDY MUTIARA SOBIIN";
         const elemenNama = document.getElementById("namaTarget");
         elemenNama.style.display = "block";
-        ketik(teksNama, "namaTarget", 70);
 
-        const musik = document.getElementById("bgmusic");
-        musik.volume = 0.6;
-
-        // Autoplay handler
-        musik.play().catch(() => {
-          const tombolPlay = document.createElement("button");
-          tombolPlay.textContent = "Putar Musik 🎵";
-          tombolPlay.onclick = () => {
-            musik.play();
-            tombolPlay.remove();
-          };
-          document.querySelector(".card").appendChild(tombolPlay);
+        ketik(teksNama, "namaTarget", 70, () => {
+          const area = document.getElementById("mainText");
+          area.style.display = "block";
+          ketik(paragrafUtama, "mainText", 30, () => {
+            document.getElementById("puisiButton").style.display =
+              "inline-block";
+          });
         });
       }
 
