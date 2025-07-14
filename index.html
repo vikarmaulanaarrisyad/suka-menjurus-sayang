@@ -42,7 +42,10 @@
         margin-bottom: 15px;
       }
 
-      p {
+      .poemArea,
+      .puisiArea {
+        min-height: 140px;
+        white-space: pre-wrap;
         font-size: 1rem;
         line-height: 1.6;
       }
@@ -56,7 +59,6 @@
       }
 
       .name {
-        display: block;
         font-weight: bold;
         font-size: 1rem;
         background: linear-gradient(90deg, #ff9a9e, #fad0c4);
@@ -64,12 +66,6 @@
         -webkit-text-fill-color: transparent;
         animation: shimmer 2s infinite;
         margin-top: 10px;
-      }
-
-      .poem {
-        margin-top: 20px;
-        font-size: 1rem;
-        font-style: italic;
       }
 
       button {
@@ -171,8 +167,8 @@
         h1 {
           font-size: 3.5rem;
         }
-        p,
-        .poem {
+        .poemArea,
+        .puisiArea {
           font-size: 1.1rem;
         }
         button {
@@ -182,7 +178,7 @@
     </style>
   </head>
   <body>
-    <!-- Bunga-bunga terbang -->
+    <!-- Bunga-bunga -->
     <div class="bunga"></div>
     <div class="bunga"></div>
     <div class="bunga"></div>
@@ -191,47 +187,60 @@
 
     <div class="card">
       <h1>Suka Menjurus Sayang</h1>
-      <p>
-        Semua berawal dari pandangan biasa.<br />
-        Tak ada yang istimewa, hanya kamu dan senyumanmu yang singkat.<br />
-        Tapi entah kenapa, hati ini jadi penasaran...<br />
-        Ingin tahu siapa kamu, bagaimana harimu, dan apa kesukaanmu.<br /><br />
-        Dan dari situlah semuanya berubah.<br />
-        Rasa itu tumbuh perlahan, tanpa paksaan, tanpa alasan.<br />
-        Hingga hari ini, aku sadar:<br />
-        Suka ini, telah menjurus... jadi sayang. 💞
-      </p>
+
+      <!-- Paragraf utama (akan diketik) -->
+      <div class="poemArea" id="mainText"></div>
 
       <div class="heart">❤️</div>
 
       <button onclick="tampilkanNama()">Klik di sini dulu...</button>
-      <span class="name" id="namaTarget" style="display: none"
-        >INDY MUTIARA SOBIIN</span
-      >
+      <div class="name" id="namaTarget" style="display: none"></div>
 
       <button onclick="tampilkanPuisi()">Lihat Pilihan Puisi</button>
-      <div class="poem" id="puisiArea"></div>
+      <div class="puisiArea" id="puisiArea"></div>
     </div>
 
     <script>
-      function tampilkanNama() {
-        const nama = document.getElementById("namaTarget");
-        nama.style.display = "block";
-        nama.style.animation = "fadeInNama 1s ease-in-out";
+      // Typewriter function
+      function ketik(teks, elemenId, kecepatan = 40, callback) {
+        const elemen = document.getElementById(elemenId);
+        elemen.innerHTML = "";
+        let i = 0;
+        const interval = setInterval(() => {
+          elemen.innerHTML += teks.charAt(i);
+          i++;
+          if (i >= teks.length) {
+            clearInterval(interval);
+            if (callback) callback();
+          }
+        }, kecepatan);
       }
 
-      const style = document.createElement("style");
-      style.innerHTML = `
-      @keyframes fadeInNama {
-        from { opacity: 0; transform: scale(0.8); }
-        to { opacity: 1; transform: scale(1); }
+      // Ketikkan puisi utama saat load
+      const paragrafUtama = `Semua berawal dari pandangan biasa.
+Tak ada yang istimewa, hanya kamu dan senyumanmu yang singkat.
+Tapi entah kenapa, hati ini jadi penasaran...
+Ingin tahu siapa kamu, bagaimana harimu, dan apa kesukaanmu.
+
+Dan dari situlah semuanya berubah.
+Rasa itu tumbuh perlahan, tanpa paksaan, tanpa alasan.
+Hingga hari ini, aku sadar:
+Suka ini, telah menjurus... jadi sayang. 💞`;
+
+      window.onload = () => {
+        ketik(paragrafUtama, "mainText", 30);
+      };
+
+      function tampilkanNama() {
+        const teksNama = "INDY MUTIARA SOBIIN";
+        const elemenNama = document.getElementById("namaTarget");
+        elemenNama.style.display = "block";
+        ketik(teksNama, "namaTarget", 70);
       }
-    `;
-      document.head.appendChild(style);
 
       const puisiList = [
         "Ada senyum yang tak bisa dijelaskan logika: senyummu.",
-        "Aku nggak pandai merayu",
+        "Aku nggak pandai merayu.",
         "Bukan hanya ingin bersamamu, tapi ingin menjagamu juga.",
         "Kamu bukan cuma spesial. Kamu definisi nyaman itu sendiri.",
         "Kalau kamu tanya aku kenapa sayang, aku nggak bisa jawab. Karena rasa itu tumbuh, bukan dicari.",
@@ -239,8 +248,7 @@
 
       let index = 0;
       function tampilkanPuisi() {
-        const area = document.getElementById("puisiArea");
-        area.innerText = puisiList[index];
+        ketik(puisiList[index], "puisiArea", 50);
         index = (index + 1) % puisiList.length;
       }
     </script>
