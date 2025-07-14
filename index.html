@@ -14,7 +14,7 @@
       body {
         margin: 0;
         padding: 0;
-        background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+        background: linear-gradient(135deg, #ffe4e1, #ffccd5, #f8bbd0);
         font-family: "Poppins", sans-serif;
         min-height: 100vh;
         display: flex;
@@ -25,23 +25,23 @@
       }
 
       .card {
-        background: rgba(255, 255, 255, 0.15);
+        background: linear-gradient(145deg, #fff0f5, #ffe4e1);
         padding: 30px 20px;
         border-radius: 20px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 30px rgba(255, 192, 203, 0.4);
         backdrop-filter: blur(12px);
         max-width: 90%;
         width: 100%;
         text-align: center;
-        color: #ffffff;
+        color: #7b2c47;
         animation: fadeIn 1.5s ease-in-out;
         z-index: 1;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        text-shadow: 1px 1px 2px rgba(255, 182, 193, 0.3);
       }
 
       h1 {
         font-family: "Satisfy", cursive;
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         margin-bottom: 15px;
       }
 
@@ -52,12 +52,13 @@
         font-size: 1.2rem;
         font-weight: 500;
         line-height: 1.7;
-        color: #ffffff;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 10px;
-        border-radius: 10px;
+        color: #7b2c47;
+        text-shadow: 1px 1px 2px rgba(255, 182, 193, 0.3);
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 12px;
+        border-radius: 12px;
         margin-bottom: 10px;
+        box-shadow: inset 0 0 5px rgba(255, 182, 193, 0.2);
       }
 
       .heart {
@@ -76,15 +77,15 @@
         -webkit-text-fill-color: transparent;
         animation: shimmer 2s infinite;
         margin-top: 10px;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
       }
 
       button {
         margin: 10px 5px;
         padding: 10px 18px;
-        background-color: #ffffff33;
+        background-color: #ffffff55;
         border: 1px solid #fff;
-        color: #fff;
+        color: #7b2c47;
         border-radius: 8px;
         font-weight: bold;
         cursor: pointer;
@@ -93,7 +94,7 @@
       }
 
       button:hover {
-        background-color: #ffffff55;
+        background-color: #ffffff88;
       }
 
       @keyframes fadeIn {
@@ -130,8 +131,8 @@
 
       .bunga {
         position: absolute;
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
         background-image: url("https://cdn-icons-png.flaticon.com/512/747/747376.png");
         background-size: cover;
         opacity: 0.3;
@@ -189,7 +190,7 @@
     </style>
   </head>
   <body>
-    <!-- Bunga-bunga -->
+    <!-- Animasi bunga -->
     <div class="bunga"></div>
     <div class="bunga"></div>
     <div class="bunga"></div>
@@ -206,18 +207,12 @@
       <h1>Suka Menjurus Sayang</h1>
       <div class="heart">❤️</div>
 
-      <!-- Tombol klik dulu -->
       <button id="tombolNama" onclick="tampilkanNama()">
         Klik di sini dulu...
       </button>
-
-      <!-- Nama -->
       <div class="name" id="namaTarget" style="display: none"></div>
-
-      <!-- Teks utama -->
       <div class="poemArea" id="mainText" style="display: none"></div>
 
-      <!-- Tombol & puisi -->
       <button id="puisiButton" onclick="tampilkanPuisi()" style="display: none">
         Lihat Pilihan Puisi
       </button>
@@ -248,16 +243,11 @@ Dan dari situlah semuanya berubah.
 Rasa itu tumbuh perlahan, tanpa paksaan, tanpa alasan.
 Hingga hari ini, aku sadar:
 Suka ini, telah menjurus... jadi sayang.
+
 Bukan cuma suka. Aku ingin jaga kamu, doain kamu, dan jadi alasan kamu tetap tersenyum setiap hari.
-Bukan cuma suka yang kupunya,
-tapi doa yang diam-diam kuucap tiap malam.
-Agar kamu bahagia,
-meski aku bukan alasannya sekarang.
-Menjagamu tanpa banyak kata,
 Aku pernah mencoba bersikap biasa,
 menyapamu seolah tak ada apa-apa.
-Tapi ternyata,
-aku nggak mampu pura-pura. 💞`;
+Tapi ternyata... aku nggak mampu pura-pura. 💞`;
 
       function tampilkanNama() {
         document.getElementById("tombolNama").style.display = "none";
@@ -283,12 +273,10 @@ aku nggak mampu pura-pura. 💞`;
 
       const puisiList = [
         "Ada senyum yang tak bisa dijelaskan logika: senyummu.",
-        "Aku nggak pandai merayu.",
-        "Bukan hanya ingin bersamamu, tapi ingin menjagamu juga.",
+        "Aku nggak pandai merayu, tapi aku tulus nunggu kabar darimu tiap hari.",
         "Kamu bukan cuma spesial. Kamu definisi nyaman itu sendiri.",
-        "Kalau kamu tanya aku kenapa sayang, aku nggak bisa jawab. Karena rasa itu tumbuh, bukan dicari",
-        "Jika suka hanyalah senyum,",
-        "maka aku ingin jadi tenangmu saat dunia gaduh.",
+        "Kalau kamu tanya kenapa sayang, aku nggak bisa jawab. Karena rasa itu tumbuh, bukan dicari.",
+        "Jika suka hanyalah senyum, maka aku ingin jadi tenangmu saat dunia gaduh.",
       ];
 
       let index = 0;
