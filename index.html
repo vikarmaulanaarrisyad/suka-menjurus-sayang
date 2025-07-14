@@ -196,11 +196,15 @@
     <div class="bunga"></div>
     <div class="bunga"></div>
 
+    <!-- Musik -->
+    <audio id="bgmusic" autoplay loop hidden>
+      <source src="musik.mp3" type="audio/mp3" />
+      Browser kamu tidak mendukung audio.
+    </audio>
+
     <div class="card">
       <h1>Suka Menjurus Sayang</h1>
-
       <div class="poemArea" id="mainText"></div>
-
       <div class="heart">❤️</div>
 
       <button onclick="tampilkanNama()">Klik di sini dulu...</button>
@@ -228,17 +232,31 @@
       }
 
       const paragrafUtama = `Semua berawal dari pandangan biasa.
-Tak ada yang istimewa, hanya kamu dan senyumanmu yang singkat.
-Tapi entah kenapa, hati ini jadi penasaran...
-Ingin tahu siapa kamu, bagaimana harimu, dan apa kesukaanmu.
+    Tak ada yang istimewa, hanya kamu dan senyumanmu yang singkat.
+    Tapi entah kenapa, hati ini jadi penasaran...
+    Ingin tahu siapa kamu, bagaimana harimu, dan apa kesukaanmu.
 
-Dan dari situlah semuanya berubah.
-Rasa itu tumbuh perlahan, tanpa paksaan, tanpa alasan.
-Hingga hari ini, aku sadar:
-Suka ini, telah menjurus... jadi sayang. 💞`;
+    Dan dari situlah semuanya berubah.
+    Rasa itu tumbuh perlahan, tanpa paksaan, tanpa alasan.
+    Hingga hari ini, aku sadar:
+    Suka ini, telah menjurus... jadi sayang. 💞`;
 
       window.onload = () => {
         ketik(paragrafUtama, "mainText", 30);
+
+        // const musik = document.getElementById("bgmusic");
+        // musik.volume = 0.6;
+
+        // // Autoplay handler
+        // musik.play().catch(() => {
+        //   const tombolPlay = document.createElement("button");
+        //   tombolPlay.textContent = "Putar Musik 🎵";
+        //   tombolPlay.onclick = () => {
+        //     musik.play();
+        //     tombolPlay.remove();
+        //   };
+        //   document.querySelector(".card").appendChild(tombolPlay);
+        // });
       };
 
       function tampilkanNama() {
@@ -246,6 +264,20 @@ Suka ini, telah menjurus... jadi sayang. 💞`;
         const elemenNama = document.getElementById("namaTarget");
         elemenNama.style.display = "block";
         ketik(teksNama, "namaTarget", 70);
+
+        const musik = document.getElementById("bgmusic");
+        musik.volume = 0.6;
+
+        // Autoplay handler
+        musik.play().catch(() => {
+          const tombolPlay = document.createElement("button");
+          tombolPlay.textContent = "Putar Musik 🎵";
+          tombolPlay.onclick = () => {
+            musik.play();
+            tombolPlay.remove();
+          };
+          document.querySelector(".card").appendChild(tombolPlay);
+        });
       }
 
       const puisiList = [
