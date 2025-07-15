@@ -18,7 +18,7 @@
       body {
         margin: 0;
         padding: 0;
-        background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+        background: linear-gradient(135deg, #ffe4e1, #ffccd5, #f8bbd0);
         font-family: "Poppins", sans-serif;
         min-height: 100vh;
         display: flex;
@@ -26,82 +26,79 @@
         justify-content: center;
         overflow-x: hidden;
         position: relative;
-        background-attachment: fixed;
-      }
-
-      .stars {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: transparent
-          url("https://raw.githubusercontent.com/VikarMaulana/assets/main/stars.gif")
-          repeat top center;
-        background-size: cover;
-        z-index: 0;
-        opacity: 0.4;
       }
 
       .card {
-        background: rgba(255, 255, 255, 0.1);
+        background: linear-gradient(145deg, #fff0f5, #ffe4e1);
         padding: 30px 20px;
         border-radius: 20px;
-        box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 30px rgba(255, 192, 203, 0.4);
         backdrop-filter: blur(12px);
         max-width: 90%;
         width: 100%;
         text-align: center;
-        color: #ffffff;
+        color: #7b2c47;
         animation: fadeIn 1.5s ease-in-out;
         z-index: 1;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        text-shadow: 1px 1px 2px rgba(220, 157, 166, 0.3);
       }
 
       h1 {
         font-family: "Satisfy", cursive;
         font-size: 1.5rem;
         margin-bottom: 15px;
-        color: #ffd1dc;
       }
 
-      .poemArea {
+      .poemArea,
+      .puisiArea {
         min-height: 140px;
         white-space: pre-wrap;
         font-size: 1.2rem;
         font-weight: 500;
         line-height: 1.7;
-        color: #ffdae3;
-        background-color: rgba(255, 255, 255, 0.1);
+        color: #952f53;
+        text-shadow: 1px 1px 2px rgba(255, 182, 193, 0.3);
+        background-color: rgba(255, 255, 255, 0.3);
         padding: 12px;
         border-radius: 12px;
-        margin-top: 10px;
-        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+        margin-bottom: 10px;
+        box-shadow: inset 0 0 5px rgba(255, 182, 193, 0.2);
+      }
+
+      .heart {
+        font-size: 1.5rem;
+        color: #ff4d6d;
+        animation: pulse 1.5s infinite;
+        display: inline-block;
+        margin: 15px 0;
       }
 
       .name {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: bold;
-        background: linear-gradient(90deg, #ffd6d6, #fff);
+        background: linear-gradient(90deg, #ff9a9e, #fad0c4);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: shimmer 2s infinite linear;
+        animation: shimmer 2s infinite;
         margin-top: 10px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
       }
 
       button {
-        margin: 15px 10px 5px;
-        padding: 10px 20px;
-        background-color: #ffffff33;
+        margin: 10px 5px;
+        padding: 10px 18px;
+        background-color: #ffffff55;
         border: 1px solid #fff;
-        color: #fff;
-        border-radius: 10px;
+        color: #7b2c47;
+        border-radius: 8px;
         font-weight: bold;
         cursor: pointer;
         font-size: 1rem;
-        transition: all 0.3s ease;
+        transition: background 0.3s;
       }
 
       button:hover {
-        background-color: #ffffff55;
+        background-color: #ffffff88;
       }
 
       @keyframes fadeIn {
@@ -115,12 +112,24 @@
         }
       }
 
-      @keyframes shimmer {
+      @keyframes pulse {
         0% {
-          background-position: -200%;
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
         }
         100% {
-          background-position: 200%;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -100%;
+        }
+        100% {
+          background-position: 100%;
         }
       }
 
@@ -130,7 +139,7 @@
         height: 22px;
         background-image: url("https://png.pngtree.com/png-clipart/20220404/original/pngtree-red-rose-flower-png-vector-png-image_7497568.png");
         background-size: cover;
-        opacity: 0.2;
+        opacity: 0.3;
         animation: float 10s infinite linear;
         z-index: 0;
       }
@@ -141,7 +150,7 @@
           opacity: 0;
         }
         50% {
-          opacity: 0.6;
+          opacity: 0.5;
         }
         100% {
           transform: translateY(-10vh) rotate(360deg);
@@ -172,9 +181,10 @@
 
       @media (min-width: 768px) {
         h1 {
-          font-size: 3rem;
+          font-size: 3.5rem;
         }
-        .poemArea {
+        .poemArea,
+        .puisiArea {
           font-size: 1.3rem;
         }
         button {
@@ -184,9 +194,6 @@
     </style>
   </head>
   <body>
-    <!-- Latar malam berbintang -->
-    <div class="stars"></div>
-
     <!-- Animasi bunga -->
     <div class="bunga"></div>
     <div class="bunga"></div>
@@ -199,22 +206,25 @@
       <source src="musik.mp3" type="audio/mp3" />
     </audio>
 
-    <!-- Kartu utama -->
     <div class="card">
-      <h1>🌙 Selamat Malam 🌙</h1>
-      <h1>❤️ INDY MUTIARA SOBIIN ❤️</h1>
+      <h1>❤️Good Morning❤️</h1>
+      <h1>❤️INDY MUTIARA SOBIIN❤️</h1>
+      <!-- <div class="heart">❤️</div> -->
 
       <button id="tombolNama" onclick="tampilkanNama()">
-        Klik di sini dulu yaa ❤️
+        Klik di sini dulu yaaa....
       </button>
-
       <div class="name" id="namaTarget" style="display: none"></div>
       <div class="poemArea" id="mainText" style="display: none"></div>
+
+      <button id="puisiButton" onclick="tampilkanPuisi()" style="display: none">
+        Lihat Pilihan Puisi
+      </button>
+      <div class="puisiArea" id="puisiArea"></div>
     </div>
 
-    <!-- Script -->
     <script>
-      function ketik(teks, elemenId, kecepatan = 40, callback) {
+      function ketik(teks, elemenId, kecepatan = 1000, callback) {
         const elemen = document.getElementById(elemenId);
         elemen.innerHTML = "";
         let i = 0;
@@ -223,53 +233,82 @@
           i++;
           if (i >= teks.length) {
             clearInterval(interval);
-            elemen.scrollIntoView({ behavior: "smooth", block: "end" });
+            elemen.scrollIntoView({ behavior: "smooth", block: "end" }); // scroll otomatis
             if (callback) callback();
           }
         }, kecepatan);
       }
 
-      const paragrafUtama = `Selamat malam, kamu yang paling manis...
+      const paragrafUtama = `Semua berawal dari pandangan biasa.
+Tak ada yang istimewa, hanya kamu dan senyumanmu yang singkat.
+Tapi entah kenapa, hati ini jadi penasaran...
+Ingin tahu siapa kamu, bagaimana harimu, dan apa kesukaanmu.
 
-Aku tahu, hari ini mungkin melelahkan.
-Tapi seperti biasa, kamu tetap kuat, tetap tersenyum, tetap bersinar—dan itu yang selalu membuatku kagum.
+Dan dari situlah semuanya berubah.
+Rasa itu tumbuh perlahan, tanpa paksaan, tanpa alasan.
+Hingga hari ini, aku sadar:
+Suka ini, telah menjurus... jadi sayang.
 
-Sekarang... waktunya kamu menutup mata, melepaskan semua beban,
-dan biarkan malam memelukmu dengan tenang.
-Angin malam mungkin dingin, tapi ada doaku yang hangat menyelimuti hatimu.
+Bukan cuma suka. Aku ingin jaga kamu, doain kamu, dan jadi alasan kamu tetap tersenyum setiap hari.
+Aku pernah mencoba bersikap biasa,
+menyapamu seolah tak ada apa-apa.
+Tapi ternyata... aku nggak mampu pura-pura. 💞
 
-Kalau esok kamu merasa ragu,
-ingat... kamu nggak pernah sendiri.
-Ada aku—yang selalu percaya padamu,
-yang diam-diam jadi semesta kecil yang ingin membuatmu bahagia.
+Aku suka caramu tertawa, caramu cerita hal-hal kecil, bahkan diam kamu pun terasa berarti buatku.
+Cukup kamu tahu,
+bahwa ada seseorang di sini,
+yang tulus menjagamu,
+meski kadang cuma lewat doa,
+atau diam-diam memperhatikanmu dari jauh.
 
-Tidurlah yaa cantik...
-Biarkan bintang jadi saksi bahwa kamu sangat berarti,
-dan bulan menyampaikan bahwa kamu selalu ada di hatiku.
+Awalnya hanya senyuman biasa, tapi kini jadi alasan aku tak bisa berhenti memikirkanmu.
+Awalnya aku hanya melihat, tapi sekarang aku merasa. Merasa ingin selalu dekat.
+Aku jarang bicara, tapi kalau soal kamu...
+Di setiap harapan, kamu selalu kusebut. Dalam diam, aku menjagamu.
 
-Malam ini, aku kirimkan kata paling lembut lewat bisikan doa.
-Semoga kamu bermimpi indah, dan bangun esok dengan hati yang lebih ringan.
-
-Met tidur, Indy Mutiara Sobiin ✨
-Walaupun berbicara... dengan cara yang pelan, tapi dalam. Seperti senyumanmu yang selalu tinggal lama dalam pikiranku. 💖`;
+Bahkan diam-diammu pun bikin hati ini tenang.
+Kayak ada rumah di balik senyummu.
+Kalau suka ini salah, biarkan aku salah tiap hari... asal masih bisa lihat kamu bahagia.`;
 
       function tampilkanNama() {
         document.getElementById("tombolNama").style.display = "none";
 
         const musik = document.getElementById("bgmusic");
         musik.muted = false;
-        musik.volume = 0.5;
+        musik.volume = 0.6;
         musik.play();
 
         const teksNama = "INDY MUTIARA SOBIIN";
         const elemenNama = document.getElementById("namaTarget");
         elemenNama.style.display = "block";
 
-        ketik(teksNama, "namaTarget", 100, () => {
+        ketik(teksNama, "namaTarget", 120, () => {
           const area = document.getElementById("mainText");
           area.style.display = "block";
-          ketik(paragrafUtama, "mainText", 30);
+          ketik(paragrafUtama, "mainText", 30, () => {
+            document.getElementById("puisiButton").style.display =
+              "inline-block";
+          });
         });
+      }
+
+      const puisiList = [
+        "Ada senyum yang tak bisa dijelaskan logika: senyummu.",
+        "Aku nggak pandai merayu, tapi aku tulus nunggu kabar darimu tiap hari.",
+        "Kamu bukan cuma spesial. Kamu definisi nyaman itu sendiri.",
+        "Kalau kamu tanya kenapa sayang, aku nggak bisa jawab. Karena rasa itu tumbuh, bukan dicari.",
+        "Jika suka hanyalah senyum, maka aku ingin jadi tenangmu saat dunia gaduh.\n— INDY MUTIARA SOBIIN",
+      ];
+
+      let index = 0;
+      function tampilkanPuisi() {
+        const area = document.getElementById("puisiArea");
+        area.innerText = puisiList[index];
+        area.scrollIntoView({ behavior: "smooth", block: "end" }); // scroll otomatis
+        index++;
+        if (index >= puisiList.length) {
+          document.getElementById("puisiButton").style.display = "none";
+        }
       }
     </script>
   </body>
